@@ -3,22 +3,20 @@ import './App.css';
 import Nav from './Nav';
 
 function App() {
+  let name = "Koi";
+
+  const handleEventClick = (event) => {
+    console.log("Click Me", event.target.value)
+  }
+
   return (
     <div className="App">
       <Nav />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >npm i sass
-          Learn React
-        </a>
+        <h1>Hello world with React and {name}</h1>
+        <input type="text" value="Koi" onClick={(event) => handleEventClick(event)}></input>
+        <button type="button" onClick={(event) => handleEventClick(event)} >Click me</button>
       </header>
     </div>
   );
