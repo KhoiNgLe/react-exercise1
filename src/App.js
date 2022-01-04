@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Nav from './Nav';
 import React, { useState } from 'react';
+import Todo from './Todo';
 
 function App() {
 
@@ -41,15 +42,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Hello world with React and {name}</h1>
-        <div className="todos-container">
-          {todos.map(todo => {
-            return (
-              <li className="todos-child" key={todo.id}> {todo.title}</li>
-            )
-          })}
-
-
-        </div>
+        <Todo todos={todos} />
         <input type="text" value={address} onChange={(event) => handleOnChangeEvent(event)} ></input>
         <button type="button" onClick={(event) => handleEventClick(event)} >Click me</button>
       </header >
