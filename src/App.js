@@ -7,14 +7,25 @@ function App() {
 
   let [name, setName] = useState('Koi')
   const [address, setAddress] = useState('')
+  const [todos, setTodos] = useState([
+    { id: 'todo1', title: 'watching Hoi Dan IT' },
+    { id: 'todo2', title: 'xem phim' },
+    { id: 'todo3', title: 'choi game' }
+  ])
 
 
 
 
   const handleEventClick = (event) => {
-    console.log(address)
-    setName(address);
+    if (!address) {
+      alert("empty input")
+      return
+    }
 
+    let newTodo = { id: 'abc', title: address }
+
+    setTodos([...todos, newTodo])
+    setAddress('')
 
   }
 
@@ -30,10 +41,19 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Hello world with React and {name}</h1>
+        <div className="todos-container">
+          {todos.map(todo => {
+            return (
+              <li className="todos-child" key={todo.id}> {todo.title}</li>
+            )
+          })}
+
+
+        </div>
         <input type="text" value={address} onChange={(event) => handleOnChangeEvent(event)} ></input>
         <button type="button" onClick={(event) => handleEventClick(event)} >Click me</button>
-      </header>
-    </div>
+      </header >
+    </div >
   );
 
 }
