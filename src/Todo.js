@@ -4,17 +4,18 @@ const Todo = (props) => {
     //parents => child, top => bottom
     const todos = props.todos
     return (
-
         <div className="todos-container" >
-            {
-                todos.map(todo => {
-                    return (
-                        <li className="todos-child" key={todo.id}> {todo.title}</li>
-                    )
-                })
+            <div className="title">
+                {props.title}
+            </div>
+            {todos.map(todo => {
+                return (
+                    <li className="todos-child" key={todo.id}>{todo.title}</li>
+                )
+            })
             }
 
-
+            <hr />
         </div>
 
     )
