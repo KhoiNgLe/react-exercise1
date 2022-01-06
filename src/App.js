@@ -24,7 +24,7 @@ function App() {
       return
     }
 
-    let newTodo = { id: 'abc', title: address, type: 'eric' }
+    let newTodo = { id: Math.floor((Math.random() * 1000) + 1), title: address, type: 'eric' }
 
     setTodos([...todos, newTodo])
     setAddress('')
@@ -36,6 +36,12 @@ function App() {
 
   }
 
+  const deleteDataTodo = (id) => {
+    let currentTodos = todos;
+    currentTodos = currentTodos.filter(item => item.id !== id)
+    setTodos(currentTodos)
+  }
+
   //re-render tao lai du lieu 
   return (
     <div className="App">
@@ -43,9 +49,17 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Hello world with React and {name}</h1>
-        <Todo todos={todos} title={'All todos'} />
+        <Todo
+          todos={todos}
+          title={'All todos'}
+          deleteDataTodo={deleteDataTodo}
+        />
 
-        <Todo todos={todos.filter(item => item.type === 'koi')} title={`Koi's todos`} />
+        <Todo
+          todos={todos.filter(item => item.type === 'koi')}
+          title={`Koi's todos`}
+          deleteDataTodo={deleteDataTodo}
+        />
 
 
 
