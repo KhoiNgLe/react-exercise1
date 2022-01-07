@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Nav from './Nav';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Todo from './Todo';
 
 function App() {
@@ -15,8 +15,13 @@ function App() {
     { id: 'todo4', title: 'eading books', type: 'hoidanit' }
   ])
 
+  useEffect(() => {
+    console.log('run use effect')
+  }, [address])
 
-
+  useEffect(() => {
+    console.log('run use effect todos')
+  }, [todos])
 
   const handleEventClick = (event) => {
     if (!address) {
